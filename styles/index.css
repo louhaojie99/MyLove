@@ -1,0 +1,68 @@
+/* 页面布局相关 */
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+.container .love {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+
+/* 爱心制作相关 */
+.heart {
+  width: 14px;
+  height: 14px;
+  background-color: red;
+  position: relative;
+  animation: heartbeat 1s infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1) rotate(-45deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(-45deg);
+  }
+  100% {
+    transform: scale(1) rotate(-45deg);
+  }
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background-color: red;
+}
+
+.heart:before {
+  border-radius: 14px 14px 0 0;
+  top: -7px;
+  left: 0;
+}
+
+.heart:after {
+  border-radius: 14px 14px 14px 0;
+  top: 0;
+  left: 7px;
+}

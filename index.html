@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>记录生活的美好</title>
+    <link rel="stylesheet" href="./styles/index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <span>距离 2023-01-15 已经相识了</span>
+      <br />
+      <div class="love">
+        <span>L</span>
+        <span class="heart"></span>
+        <span>D</span>
+      </div>
+      <br />
+      <span class="showTime"></span>
+    </div>
+
+    <script src="./scripts/chinaLantern.js"></script>
+    <script src="./scripts/gsap.js"></script>
+    <script src="./scripts/petalAnimation.js"></script>
+    <script>
+      const getLoveTime = () => {
+        // 获取当前时间
+        const now = new Date();
+
+        // 设置目标日期
+        const targetDate = new Date("2023-01-15 00:00:00");
+
+        // 计算时间差（以毫秒为单位）
+        const timeDiff = now.getTime() - targetDate.getTime();
+
+        // 计算时间差的天数、小时数、分钟数和秒数
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+        const result = `👫 ${days} 天 ${hours} 小时 ${minutes} 分钟 ${seconds} 秒`;
+
+        // 将时间差输出到页面上
+        document.querySelector(".showTime").innerText = result;
+      };
+
+      setInterval(getLoveTime, 1000);
+    </script>
+  </body>
+</html>
